@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Luas</title>
+    <style>
+        body {
+            background-color: #2ecc71; /* Warna hijau */
+            color: #fff; /* Warna teks putih */
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input {
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #3498db; /* Warna biru */
+            color: #fff; /* Warna teks putih */
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9; /* Warna biru sedikit lebih tua saat dihover */
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        #luas {
+            font-weight: bold;
+        }
+
+        /* Animasi tulisan berjalan */
+        @keyframes berjalan {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .tulisan-berjalan {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: berjalan 10s linear infinite;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Kalkulator Luas</h2>
+
+    <label for="panjang">Panjang:</label>
+    <input type="number" id="panjang" placeholder="Masukkan panjang">
+
+    <label for="lebar">Lebar:</label>
+    <input type="number" id="lebar" placeholder="Masukkan lebar">
+
+    <button onclick="hitungLuas()">Hitung</button>
+
+    <p>Luas: <span id="luas" class="tulisan-berjalan">0</span></p>
+
+    <script>
+        function hitungLuas() {
+            // Ambil nilai panjang dan lebar dari input
+            var panjang = document.getElementById("panjang").value;
+            var lebar = document.getElementById("lebar").value;
+
+            // Konversi nilai panjang dan lebar ke tipe data float
+            panjang = parseFloat(panjang);
+            lebar = parseFloat(lebar);
+
+            // Hitung luas
+            var luas = panjang * lebar;
+
+            // Tampilkan hasil di elemen dengan id "luas"
+            document.getElementById("luas").textContent = luas;
+        }
+    </script>
+
+</body>
+</html>
